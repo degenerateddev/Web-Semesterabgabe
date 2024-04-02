@@ -64,6 +64,10 @@ a:hover {
     justify-content: space-between;
 }
 
+.items-center {
+    align-items: center;
+}
+
 .gap {
     gap: 10px;
 }
@@ -74,4 +78,24 @@ a:hover {
 
 .underline {
     text-decoration: underline;
+}
+
+.text-extralarge {
+    font-size: 48px;
+}
+
+.text-large {
+    font-size: 24px;
+}
+
+.text-medium {
+    font-size: 18px;
+}
+
+.text-small {
+    font-size: 14px;
+}
+
+.text-center {
+    text-align: center;
 }
