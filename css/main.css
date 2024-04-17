@@ -99,3 +99,15 @@ a:hover {
 .text-center {
     text-align: center;
 }
+
+.rounded {
+    border-radius: 5px;
+}
+
+.rounded-full {
+    border-radius: 50%;
+}
+
+.padding-base {
+    padding: 10px;
+}
