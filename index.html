@@ -18,9 +18,12 @@
         <![endif]-->
 
         <!-- Command line interface as navigation for the website -->
-        <div class="flex flex-col">
-            <input type="text" id="cli" placeholder="Type something..." class="text-light" />
-            <div id="terminal" class="text-light">
+        <div class="flex flex-col" id="terminal-base">
+            <div class="flex items-center" style="padding: 40px;">
+                <input type="text" id="cli" autofocus />
+                <span id="caret"></span>
+            </div>
+            <div id="terminal">
                 
             </div>
         </div>

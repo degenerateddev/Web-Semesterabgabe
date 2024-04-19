@@ -3,6 +3,23 @@ window.onload = function() {
     document.getElementById('date').textContent = date;
 }
 
+var caretDisplayed = true;
+var caret = document.getElementById('caret');
+var skipBeat = false;
+window.onload = function() {
+    setInterval(() => {
+        if (skipBeat === false) {
+            caretDisplayed = !caretDisplayed;
+
+            if (caretDisplayed) {
+                caret.style.display = "block";
+            } else {
+                caret.style.display = "none";
+            }
+        }
+    }, 1000);
+}
+
 function submitTerminal(val) {
     console.log(val)
 }
@@ -10,7 +27,18 @@ function submitTerminal(val) {
 var cli = document.getElementById('cli');
 var initiatedSudo = false;
 var sudoTries = 0;
-document.addEventListener('keypress', function(event) {
+
+cli.oninput = function() {
+    this.style.width = ((this.value.length) * 8) + 'px';
+};
+
+cli.addEventListener('keypress', function(event) {
+    let audio = new Audio('../audio/keyboard.mp3');
+
+    skipBeat = true;
+
+    this.style.width = "0px";
+
     if (event.key === "Enter") {
         let val = cli.value;
         cli.value = "";
@@ -53,8 +81,6 @@ document.addEventListener('keypress', function(event) {
                     <li>su</li>
                 </ul>
             `;
-        } else if (val === "clear") {
-            terminal.innerHTML = "";
         } else if ((val === "ls") || (val === "dir")) {
             terminal.innerHTML += `
                 <ul>
@@ -71,20 +97,24 @@ document.addEventListener('keypress', function(event) {
         } else if ((val === "cd Counter") || (val === "cd counter")) {
             window.location.href = "../html/counter.html";
         } else if ((val === "cat password.txt")) {
-            terminal.innerHTML = `
+            terminal.innerHTML += `
                 <p>c0ngr4ts_scr1ptk1ddy</p>
             `;
         } else if (val === "su root") {
             initiatedSudo = true;
 
-            terminal.innerHTML = `
+            terminal.innerHTML += `
                 <p>Enter root password...</p>
             `;
         } else {
-            terminal.innerHTML = `
+            terminal.innerHTML += `
                 <p>Command not found...</p>
             `;
         }
 
     }
+});
+
+cli.addEventListener('keyup', function(event) {
+    skipBeat = false;
 });
