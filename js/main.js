@@ -43,12 +43,24 @@ document.addEventListener('keypress', function(event) {
 
         if (val === "clear") {
             terminal.innerHTML = "";
-        } else if ((val === "ls") || (val === "dir")) {
-            terminal.innerHTML = `
+        } else if (val === "help") {
+            terminal.innerHTML += `
                 <ul>
-                    <li>Projects</li>
-                    <li>Socials</li>
-                    <li>Counter</li>
+                    <li>ls</li>
+                    <li>cd</li>
+                    <li>cat</li>
+                    <li>clear</li>
+                    <li>su</li>
+                </ul>
+            `;
+        } else if (val === "clear") {
+            terminal.innerHTML = "";
+        } else if ((val === "ls") || (val === "dir")) {
+            terminal.innerHTML += `
+                <ul>
+                    <li>/projects</li>
+                    <li>/socials</li>
+                    <li>/counter</li>
                     <li>password.txt</li>
                 </ul>
             `;

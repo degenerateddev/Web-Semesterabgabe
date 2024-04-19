@@ -155,8 +155,6 @@ a:hover {
     color: greenyellow;
     background-color: black;
     padding: 10px;
-    border-top-color: white;
-    border-radius: 5px 5px 0px 0px;
 }
 
 #cli:focus {
@@ -173,14 +171,20 @@ a:hover {
 }
 
 #terminal {
-    min-height: 50vh;
+    min-height: 100vh;
     background-color: black;
-    color: #fff;
+    color: greenyellow;
     padding: 10px;
-    border-radius: 0px 0px 5px 5px;
-    max-height: 50vh;
 }
 
 ul {
     list-style-type: none;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.w-full {
+    width: 100%;
 }
