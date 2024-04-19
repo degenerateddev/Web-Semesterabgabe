@@ -159,6 +159,7 @@ color: #199515;
     height: 25px;
 }
 #cli {
+    height: 25vh;
     width: 0px;
     font-size: 20px;
     padding: 10px;
@@ -195,7 +196,7 @@ color: #199515;
     background-color: #073605;
 }
 #terminal {
-    min-height: 100vh;
+    min-height: 75vh;
     padding: 10px;
 }
 

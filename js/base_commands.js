@@ -4,10 +4,6 @@ var sudoTries = 0;
 var accessGranted = false;
 
 cli.addEventListener('keypress', function(event) {
-    let audio = new Audio('../audio/keyboard.mp3');
-
-    skipBeat = true;
-
     this.style.width = "0px";
 
     if (event.key === "Enter") {

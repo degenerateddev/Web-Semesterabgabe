@@ -22,7 +22,17 @@ window.onload = function() {
 
 cli.oninput = function() {
     this.style.width = ((this.value.length) * 12) + 'px';
+
+    // play typing sound audio file
+    let random = Math.floor(Math.random() * 3) + 1;
+    let audio = new Audio('../audio/' + random.toString() + ".wav");
+    audio.play();
 };
+
+cli.addEventListener('keydown', function(event) {
+    skipBeat = true;
+    caret.style.display = "none";
+});
 
 cli.addEventListener('keyup', function(event) {
     skipBeat = false;
