@@ -27,6 +27,7 @@ function submitTerminal(val) {
 var cli = document.getElementById('cli');
 var initiatedSudo = false;
 var sudoTries = 0;
+var accessGranted = false;
 
 cli.oninput = function() {
     this.style.width = ((this.value.length) * 8) + 'px';
@@ -50,6 +51,7 @@ cli.addEventListener('keypress', function(event) {
                 terminal.innerHTML = `
                     <p>Root access granted...</p>
                 `
+                accessGranted = true;
             } else {
                 sudoTries++;
                 terminal.innerHTML = `
@@ -82,20 +84,41 @@ cli.addEventListener('keypress', function(event) {
                 </ul>
             `;
         } else if ((val === "ls") || (val === "dir")) {
-            terminal.innerHTML += `
-                <ul>
-                    <li>/projects</li>
-                    <li>/socials</li>
-                    <li>/counter</li>
-                    <li>password.txt</li>
-                </ul>
-            `;
+            if (accessGranted) {
+                terminal.innerHTML += `
+                    <ul>
+                        <li>/projects</li>
+                        <li>/socials</li>
+                        <li>/counter</li>
+                        <li>password.txt</li>
+                        <li>/admin</li>
+                    </ul>
+                `;
+
+            } else {
+                terminal.innerHTML += `
+                    <ul>
+                        <li>/projects</li>
+                        <li>/socials</li>
+                        <li>/counter</li>
+                        <li>password.txt</li>
+                    </ul>
+                `;
+            }
         } else if ((val === "cd Projects") || (val === "cd projects")) {
             window.location.href = "../html/projects.html";
         } else if ((val === "cd Socials") || (val === "cd socials")) {
             window.location.href = "../html/socials.html";
         } else if ((val === "cd Counter") || (val === "cd counter")) {
             window.location.href = "../html/counter.html";
+        } else if ((val === "cd Admin") || (val === "cd admin")) {
+            if (accessGranted) {
+                window.location.href = "../html/admin.html";
+            } else {
+                terminal.innerHTML += `
+                    <p>Permission denied...</p>
+                `;
+            }
         } else if ((val === "cat password.txt")) {
             terminal.innerHTML += `
                 <p>c0ngr4ts_scr1ptk1ddy</p>
