@@ -2,6 +2,7 @@ var caretDisplayed = true;
 var caret = document.getElementById('caret');
 var cli = document.getElementById('cli');
 var skipBeat = false;
+var currentValue = "";
 
 window.onload = function() {
     var date = new Date().getFullYear();
@@ -31,9 +32,29 @@ window.onload = function() {
         skipBeat = true;
         caret.style.display = "none";
 
+        // exclude special keys like tab, shift, etc.
+        if (event.key === "Tab" || event.key === "Shift" || event.key === "Control" || event.key === "Alt" || event.key === "CapsLock" || event.key === "Meta" || event.key === "ArrowUp" || event.key === "ArrowDown" || event.key === "ArrowLeft" || event.key === "ArrowRight" || event.key === "Escape") {
+            return;
+        }
+
         if (event.key === "Backspace") {
-            cli.innerText = cli.innerText.slice(0, -1);
-        };
+            currentValue = currentValue.slice(0, -1);
+            cli.innerText = currentValue;
+            return;
+
+        } else if (event.key === "Enter") {
+            currentValue = "";
+            return;
+        
+        } else if (event.key === " ") {
+            currentValue += " ";
+
+        } else {
+            currentValue += event.key;
+        }
+
+        cli.innerText = currentValue;
+        console.log(currentValue);
 
         resetCLIWidth();
     });
@@ -48,6 +69,6 @@ window.onload = function() {
 }
 
 function resetCLIWidth() {
-    let width = cli.innerText.length * 12;
+    let width = currentValue.length * 12;
     cli.style.width = width + "px";
 }

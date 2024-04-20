@@ -4,13 +4,13 @@ var sudoTries = 0;
 var accessGranted = false;
 
 document.addEventListener('keypress', function(event) {
-    cli.style.width = "0px";
-    
+    var val = "";
+
     if (event.key === "Enter") {
-        let val = cli.innerText;
+        val = cli.innerText;
         cli.innerText = "";
 
-        console.log(val)
+        console.log(val);
 
         let terminal = document.getElementById("terminal");
 
@@ -138,7 +138,5 @@ document.addEventListener('keypress', function(event) {
             `;
         }
 
-    } else {
-        cli.innerText += event.key;
     }
 });

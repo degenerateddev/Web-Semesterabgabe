@@ -2,10 +2,10 @@ var cli = document.getElementById('cli');
 
 document.onload = function() {
     document.addEventListener('keypress', function(event) {
-        cli.style.width = "0px";
-
+        var val = "";
+        
         if (event.key === "Enter") {
-            let val = cli.innerText;
+            val = cli.innerText;
             cli.innerText = "";
 
             let terminal = document.getElementById("terminal");
@@ -73,8 +73,7 @@ document.onload = function() {
                     <p>Command not found...</p>
                 `;
             }
-        } else {
-            cli.innerText += event.key;
+
         }
     });
 }
