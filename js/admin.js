@@ -22,23 +22,23 @@ document.onload = function() {
                             </tr>
                         </thead>
                         <tr>
-                            <td>-ls</td>
+                            <td>- ls</td>
                             <td>list the current directories' content</td>
                         </tr>
                         <tr>
-                            <td>-cd</td>
+                            <td>- cd</td>
                             <td>navigate into a different directory</td>
                         </tr>
                         <tr>
-                            <td>-cat</td>
+                            <td>- cat</td>
                             <td>display the content of a file</td>
                         </tr>
                         <tr>
-                            <td>-clear</td>
+                            <td>- clear</td>
                             <td>clear the terminal</td>
                         </tr>
                         <tr>
-                            <td>-su</td>
+                            <td>- su</td>
                             <td>switch to different user</td>
                         </tr>
                     </table>

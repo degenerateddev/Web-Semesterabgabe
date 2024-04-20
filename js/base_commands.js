@@ -10,6 +10,8 @@ document.addEventListener('keypress', function(event) {
         let val = cli.innerText;
         cli.innerText = "";
 
+        console.log(val)
+
         let terminal = document.getElementById("terminal");
 
         if (initiatedSudo) {
@@ -49,23 +51,23 @@ document.addEventListener('keypress', function(event) {
                         </tr>
                     </thead>
                     <tr>
-                        <td>-ls</td>
+                        <td>- ls</td>
                         <td>list the current directories' content</td>
                     </tr>
                     <tr>
-                        <td>-cd</td>
+                        <td>- cd</td>
                         <td>navigate into a different directory</td>
                     </tr>
                     <tr>
-                        <td>-cat</td>
+                        <td>- cat</td>
                         <td>display the content of a file</td>
                     </tr>
                     <tr>
-                        <td>-clear</td>
+                        <td>- clear</td>
                         <td>clear the terminal</td>
                     </tr>
                     <tr>
-                        <td>-su</td>
+                        <td>- su</td>
                         <td>switch to different user</td>
                     </tr>
                 </table>
@@ -91,8 +93,8 @@ document.addEventListener('keypress', function(event) {
                     </tr>
                     <tr>
                         <td>drwxr-xr-x</td>
-                        <td>default</td>
-                        <td>default</td>
+                        <td>root</td>
+                        <td>root</td>
                         <td>4096</td>
                         <td>2024-12-2 16:00:00</td>
                         <td>/admin</td>
@@ -107,13 +109,11 @@ document.addEventListener('keypress', function(event) {
                     </tr>
                 </table>
             `;
-        } else if ((val === "cd Projects") || (val === "cd projects")) {
+        } else if ((val === "cd /projects") || (val === "cd projects") || (val === "cd projects/")) {
             window.location.href = "../html/projects.html";
-        } else if ((val === "cd Socials") || (val === "cd socials")) {
+        } else if ((val === "cd /socials") || (val === "cd socials") || (val === "cd socials/")) {
             window.location.href = "../html/socials.html";
-        } else if ((val === "cd Counter") || (val === "cd counter")) {
-            window.location.href = "../html/counter.html";
-        } else if ((val === "cd Admin") || (val === "cd admin")) {
+        } else if ((val === "cd /admin") || (val === "cd admin" || (val === "cd admin/"))) {
             if (accessGranted) {
                 window.location.href = "../html/admin.html";
             } else {
@@ -126,6 +126,7 @@ document.addEventListener('keypress', function(event) {
                 <p>c0ngr4ts_scr1ptk1ddy</p>
             `;
         } else if (val === "su root") {
+            // maybe set cookie here so people can't just navigate to /admin
             initiatedSudo = true;
 
             terminal.innerHTML += `
