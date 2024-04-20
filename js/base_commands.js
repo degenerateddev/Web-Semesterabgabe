@@ -3,12 +3,12 @@ var initiatedSudo = false;
 var sudoTries = 0;
 var accessGranted = false;
 
-cli.addEventListener('keypress', function(event) {
-    this.style.width = "0px";
-
+document.addEventListener('keypress', function(event) {
+    cli.style.width = "0px";
+    
     if (event.key === "Enter") {
-        let val = cli.value;
-        cli.value = "";
+        let val = cli.innerText;
+        cli.innerText = "";
 
         let terminal = document.getElementById("terminal");
 
@@ -41,36 +41,72 @@ cli.addEventListener('keypress', function(event) {
             terminal.innerHTML = "";
         } else if (val === "help") {
             terminal.innerHTML += `
-                <ul>
-                    <li>ls</li>
-                    <li>cd</li>
-                    <li>cat</li>
-                    <li>clear</li>
-                    <li>su</li>
-                </ul>
+            help: Display information about builtin commands.
+                <table style="padding: 50px;">
+                    <thead>
+                        <tr>
+                            <th>Options:</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>-ls</td>
+                        <td>list the current directories' content</td>
+                    </tr>
+                    <tr>
+                        <td>-cd</td>
+                        <td>navigate into a different directory</td>
+                    </tr>
+                    <tr>
+                        <td>-cat</td>
+                        <td>display the content of a file</td>
+                    </tr>
+                    <tr>
+                        <td>-clear</td>
+                        <td>clear the terminal</td>
+                    </tr>
+                    <tr>
+                        <td>-su</td>
+                        <td>switch to different user</td>
+                    </tr>
+                </table>
             `;
         } else if ((val === "ls") || (val === "dir")) {
-            if (accessGranted) {
-                terminal.innerHTML += `
-                    <ul>
-                        <li>/projects</li>
-                        <li>/socials</li>
-                        <li>/counter</li>
-                        <li>password.txt</li>
-                        <li>/admin</li>
-                    </ul>
-                `;
-
-            } else {
-                terminal.innerHTML += `
-                    <ul>
-                        <li>/projects</li>
-                        <li>/socials</li>
-                        <li>/counter</li>
-                        <li>password.txt</li>
-                    </ul>
-                `;
-            }
+            terminal.innerHTML += `
+                <table>
+                    <tr>
+                        <td>drwxr-xr-x</td>
+                        <td>default</td>
+                        <td>default</td>
+                        <td>4096</td>
+                        <td>2023-19-12 2:00:00</td>
+                        <td>/projects</td>
+                    </tr>
+                    <tr>
+                        <td>drwxr-xr-x</td>
+                        <td>default</td>
+                        <td>default</td>
+                        <td>4096</td>
+                        <td>2024-18-3 11:00:00</td>
+                        <td>/socials</td>
+                    </tr>
+                    <tr>
+                        <td>drwxr-xr-x</td>
+                        <td>default</td>
+                        <td>default</td>
+                        <td>4096</td>
+                        <td>2024-12-2 16:00:00</td>
+                        <td>/admin</td>
+                    </tr>
+                    <tr>
+                        <td>-rwxr-xr-x</td>
+                        <td>default</td>
+                        <td>default</td>
+                        <td>4096</td>
+                        <td>2024-09-01 12:00:00</td>
+                        <td>password.txt</td>
+                    </tr>
+                </table>
+            `;
         } else if ((val === "cd Projects") || (val === "cd projects")) {
             window.location.href = "../html/projects.html";
         } else if ((val === "cd Socials") || (val === "cd socials")) {
@@ -101,5 +137,7 @@ cli.addEventListener('keypress', function(event) {
             `;
         }
 
+    } else {
+        cli.innerText += event.key;
     }
 });

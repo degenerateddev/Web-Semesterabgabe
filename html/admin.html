@@ -7,13 +7,16 @@
         <link rel="stylesheet" href="../css/main.css">
     </head>
     <body>
-        <div class="flex flex-col" id="terminal-base">
-            <div class="flex items-center" style="padding: 40px;">
-                <input type="text" id="cli" autofocus />
-                <span id="caret"></span>
+        <div class="flex flex-col h-screen" id="terminal-base">
+            <div id="terminal" class="relative">
+                <div id="time">
+
+                </div>
             </div>
-            <div id="terminal">
-                
+            <div class="flex items-center" style="padding: 40px; height: 25vh;">
+                <div id="cli-linestart">default@terminal> </div>
+                <div id="cli"></div>
+                <div id="caret"></div>
             </div>
         </div>
         

@@ -7,7 +7,23 @@
         <link rel="stylesheet" href="../css/main.css">
     </head>
     <body>
-        <div class="flex flex-col gap-large">
+        <div class="flex flex-col h-screen" id="terminal-base">
+            <div id="terminal" class="relative">
+                <div id="time">
+
+                </div>
+            </div>
+            <div class="flex items-center" style="padding: 40px; height: 25vh;">
+                <div id="cli-linestart">default@terminal> </div>
+                <div id="cli"></div>
+                <div id="caret"></div>
+            </div>
+        </div>
+        
+        <script src="../js/main.js" async defer></script>
+        <script src="../js/admin.js" async defer></script>
+
+        <!-- <div class="flex flex-col gap-large">
             <header>
                 <nav class="flex justify-between items-center">
                     <a href="/" class="text-extralarge">
@@ -50,7 +66,7 @@
                 <a href="https://www.tha.de/Service/Datenschutz.html">Datenschutz</a>
                 <div>Copyright © <span id="date"></span> by Tim Arnold</div>
             </footer>
-        </div>
+        </div> -->
     
         <script src="../js/main.js"></script>
     </body>

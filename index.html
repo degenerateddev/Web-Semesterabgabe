@@ -17,13 +17,16 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <div class="flex flex-col" id="terminal-base">
-            <div id="terminal">
-                
+        <div class="flex flex-col h-screen" id="terminal-base">
+            <div id="terminal" class="relative">
+                <div id="time">
+
+                </div>
             </div>
-            <div class="flex items-center" style="padding: 40px;">
-                <input type="text" id="cli" autofocus />
-                <span id="caret"></span>
+            <div class="flex items-center" style="padding: 40px; height: 25vh;">
+                <div id="cli-linestart">default@terminal> </div>
+                <div id="cli"></div>
+                <div id="caret"></div>
             </div>
         </div>
         
