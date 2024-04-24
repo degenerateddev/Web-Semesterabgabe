@@ -117,7 +117,7 @@ document.addEventListener('keypress', function(event) {
             let accessGranted = document.cookie.includes("sudoAccess=1");
             
             if (accessGranted) {
-                window.location.href = "../html/admin/admin.html";
+                window.location.href = "../html/admin.html";
             } else {
                 terminal.innerHTML += `
                     <p>Permission denied...</p>

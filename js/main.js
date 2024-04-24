@@ -1,6 +1,7 @@
 var caretDisplayed = true;
 var caret = document.getElementById('caret');
 var cli = document.getElementById('cli');
+var terminal = document.getElementById('terminal');
 var skipBeat = false;
 var currentValue = "";
 
@@ -49,6 +50,7 @@ window.onload = function() {
 
         } else if (event.key === "Enter") {
             currentValue = "";
+            terminal.scrollTop = terminal.scrollHeight;
             return;
         
         } else if (event.key === " ") {

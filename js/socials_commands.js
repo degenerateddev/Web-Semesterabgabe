@@ -91,14 +91,16 @@ document.addEventListener('keypress', function(event) {
                     </tr>
                 </table>
             `;
+        } else if ((val === "cd ..") || (val === "cd /")) {
+            window.location.href = "../index.html";
         } else if ((val === "cd /writing") || (val === "cd writing") || (val === "cd writing/")) {
-            window.location.href = "";
+            window.location.href = "https://story.one/tim-arnold";
         } else if ((val === "cd /instagram") || (val === "cd instagram") || (val === "cd instagram/")) {
-            window.location.href = "";
+            window.location.href = "https://www.instagram.com/degenerateddev/";
         } else if ((val === "cd /twitter") || (val === "cd twitter" || (val === "cd twitter/"))) {
-            window.location.href = "";
+            window.location.href = "https://twitter.com/degenerateddev";
         } else if ((val === "cd /linkedin") || (val === "cd linkedin") || (val === "cd linkedin/")) {
-            window.location.href = "";
+            window.location.href = "https://www.linkedin.com/in/tim-arnold-1b1b6b1b/";
         } else {
             terminal.innerHTML += `
                 <p>Command not found...</p>
