@@ -37,6 +37,11 @@ window.onload = function() {
             return;
         }
 
+        // exclude CTRL + C
+        if (event.ctrlKey && event.key === "c") {
+            return;
+        }
+
         if (event.key === "Backspace") {
             currentValue = currentValue.slice(0, -1);
             cli.innerText = currentValue;
