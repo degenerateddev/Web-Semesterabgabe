@@ -67,7 +67,7 @@ document.onload = function() {
             } else if (val === "cd ..") {
                 window.location.href = "../index.html";
             } else if (val === "cd /secret") {
-                window.location.href = "../html/secret.html";
+                window.location.href = "../html/admin/secret.html";
             } else {
                 terminal.innerHTML += `
                     <p>Command not found...</p>

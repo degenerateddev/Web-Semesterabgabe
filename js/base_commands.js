@@ -115,7 +115,7 @@ document.addEventListener('keypress', function(event) {
             window.location.href = "../html/socials.html";
         } else if ((val === "cd /admin") || (val === "cd admin" || (val === "cd admin/"))) {
             if (accessGranted) {
-                window.location.href = "../html/admin.html";
+                window.location.href = "../html/admin/admin.html";
             } else {
                 terminal.innerHTML += `
                     <p>Permission denied...</p>
