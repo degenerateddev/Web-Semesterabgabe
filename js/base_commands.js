@@ -1,7 +1,6 @@
 var cli = document.getElementById('cli');
 var initiatedSudo = false;
 var sudoTries = 0;
-var accessGranted = false;
 
 document.addEventListener('keypress', function(event) {
     var val = "";
@@ -19,7 +18,7 @@ document.addEventListener('keypress', function(event) {
                 terminal.innerHTML = `
                     <p>Root access granted...</p>
                 `
-                accessGranted = true;
+                document.cookie = "sudoAccess=1";
             } else {
                 sudoTries++;
                 terminal.innerHTML = `
@@ -31,6 +30,7 @@ document.addEventListener('keypress', function(event) {
                 terminal.innerHTML = `
                     <p>Too many incorrect attempts...</p>
                 `
+                document.cookie = "sudoAccess=0";
                 initiatedSudo = false;
                 sudoTries = 0;
                 setTimeout(() => {
@@ -114,6 +114,8 @@ document.addEventListener('keypress', function(event) {
         } else if ((val === "cd /socials") || (val === "cd socials") || (val === "cd socials/")) {
             window.location.href = "../html/socials.html";
         } else if ((val === "cd /admin") || (val === "cd admin" || (val === "cd admin/"))) {
+            let accessGranted = document.cookie.includes("sudoAccess=1");
+            
             if (accessGranted) {
                 window.location.href = "../html/admin/admin.html";
             } else {

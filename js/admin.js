@@ -8,6 +8,8 @@ document.onload = function() {
             val = cli.innerText;
             cli.innerText = "";
 
+            console.log(val);
+
             let terminal = document.getElementById("terminal");
     
             if (val === "clear") {
