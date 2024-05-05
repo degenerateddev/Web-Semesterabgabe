@@ -134,6 +134,9 @@ document.addEventListener('keypress', function(event) {
             terminal.innerHTML += `
                 <p>Enter root password...</p>
             `;
+        } else if (val === "c0ngr4ts_scr1ptk1ddy") {
+            
+            
         } else {
             terminal.innerHTML += `
                 <p>Command not found...</p>
