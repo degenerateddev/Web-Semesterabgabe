@@ -1,4 +1,11 @@
 var cli = document.getElementById('cli');
+var terminal = document.getElementById('terminal');
+
+window.onload = function() {
+    terminal.innerHTML += `
+        Welcome to the admin panel...
+    `;
+};
 
 document.addEventListener('keypress', function(event) {
     var val = "";
@@ -11,42 +18,7 @@ document.addEventListener('keypress', function(event) {
 
         let terminal = document.getElementById("terminal");
 
-        if (val === "clear") {
-            terminal.innerHTML = "";
-
-        } else if (val === "help") {
-            terminal.innerHTML += `
-            help: Display information about builtin commands.
-                <table style="padding: 50px;">
-                    <thead>
-                        <tr>
-                            <th>Options:</th>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td>- ls</td>
-                        <td>list the current directories' content</td>
-                    </tr>
-                    <tr>
-                        <td>- cd</td>
-                        <td>navigate into a different directory</td>
-                    </tr>
-                    <tr>
-                        <td>- cat</td>
-                        <td>display the content of a file</td>
-                    </tr>
-                    <tr>
-                        <td>- clear</td>
-                        <td>clear the terminal</td>
-                    </tr>
-                    <tr>
-                        <td>- su</td>
-                        <td>switch to different user</td>
-                    </tr>
-                </table>
-            `;
-
-        } else if ((val === "ls") || (val === "dir")) {
+        if ((val === "ls") || (val === "dir")) {
             terminal.innerHTML += `
                 <table>
                     <tr>
@@ -70,16 +42,8 @@ document.addEventListener('keypress', function(event) {
 
         } else if (val === "cd ..") {
             window.location.href = "../index.html";
-
         } else if (val === "cd /secret" || val === "cd secret" || val === "cd secret/") {
             window.location.href = "../html/secret.html";
-
-        } else {
-            terminal.innerHTML += `
-                <p>Command not found...</p>
-            `;
-
         }
-
     }
 });

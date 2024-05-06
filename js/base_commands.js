@@ -39,40 +39,7 @@ document.addEventListener('keypress', function(event) {
             }
         }
 
-        if (val === "clear") {
-            terminal.innerHTML = "";
-        } else if (val === "help") {
-            terminal.innerHTML += `
-            help: Display information about builtin commands.
-                <table style="padding: 50px;">
-                    <thead>
-                        <tr>
-                            <th>Options:</th>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td>- ls</td>
-                        <td>list the current directories' content</td>
-                    </tr>
-                    <tr>
-                        <td>- cd</td>
-                        <td>navigate into a different directory</td>
-                    </tr>
-                    <tr>
-                        <td>- cat</td>
-                        <td>display the content of a file</td>
-                    </tr>
-                    <tr>
-                        <td>- clear</td>
-                        <td>clear the terminal</td>
-                    </tr>
-                    <tr>
-                        <td>- su</td>
-                        <td>switch to different user</td>
-                    </tr>
-                </table>
-            `;
-        } else if ((val === "ls") || (val === "dir")) {
+        if ((val === "ls") || (val === "dir")) {
             terminal.innerHTML += `
                 <table>
                     <tr>
@@ -123,6 +90,14 @@ document.addEventListener('keypress', function(event) {
                     <p>Permission denied...</p>
                 `;
             }
+        } else if ((val === "cd /secret") || (val === "cd secret") || (val === "cd secret/")) {
+            if (document.cookie.includes("sudoAccess=1")) {
+                window.location.href = "../html/secret.html";
+            } else {
+                terminal.innerHTML += `
+                    <p>Permission denied...</p>
+                `;
+            }
         } else if ((val === "cat password.txt")) {
             terminal.innerHTML += `
                 <p>c0ngr4ts_scr1ptk1ddy</p>
@@ -136,11 +111,6 @@ document.addEventListener('keypress', function(event) {
             `;
         } else if (val === "c0ngr4ts_scr1ptk1ddy") {
             
-            
-        } else {
-            terminal.innerHTML += `
-                <p>Command not found...</p>
-            `;
         }
 
     }

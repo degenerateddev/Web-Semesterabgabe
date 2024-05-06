@@ -6,6 +6,17 @@ var skipBeat = false;
 var currentValue = "";
 
 window.onload = function() {
+    var lineStart = document.getElementById('cli-linestart');
+    var isRoot = document.cookie.includes("sudoAccess=1");
+
+    console.log(isRoot)
+    if (isRoot) {
+        lineStart.innerText = "root@terminal>";
+
+    } else {
+        lineStart.innerText = "default@terminal>";
+    }
+
     var date = new Date().getFullYear();
     document.getElementById('year').innerText = "© " + date;
 
@@ -49,8 +60,54 @@ window.onload = function() {
             return;
 
         } else if (event.key === "Enter") {
+            if (currentValue === "I CAN SEE YOU") {
+                terminal.innerHTML += `
+                    <p style="color: red;">I CAN SEE YOU</p>
+                `;
+    
+            } else if (val === "clear") {
+                terminal.innerHTML = "";
+    
+            } else if (currentValue === "help") {
+                terminal.innerHTML += `
+                    help: Display information about builtin commands.
+                        <table style="padding: 50px;">
+                            <thead>
+                                <tr>
+                                    <th>Options:</th>
+                                </tr>
+                            </thead>
+                            <tr>
+                                <td>- ls</td>
+                                <td>list the current directories' content</td>
+                            </tr>
+                            <tr>
+                                <td>- cd</td>
+                                <td>navigate into a different directory</td>
+                            </tr>
+                            <tr>
+                                <td>- cat</td>
+                                <td>display the content of a file</td>
+                            </tr>
+                            <tr>
+                                <td>- clear</td>
+                                <td>clear the terminal</td>
+                            </tr>
+                            <tr>
+                                <td>- su</td>
+                                <td>switch to different user</td>
+                            </tr>
+                        </table>
+                    `;
+            } else {
+                terminal.innerHTML += `
+                    <p>Command not found...</p>
+                `;
+            }
+            
             currentValue = "";
             terminal.scrollTop = terminal.scrollHeight;
+
             return;
         
         } else if (event.key === " ") {

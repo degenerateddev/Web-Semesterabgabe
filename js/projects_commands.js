@@ -13,40 +13,7 @@ document.addEventListener('keypress', function(event) {
 
         let terminal = document.getElementById("terminal");
 
-        if (val === "clear") {
-            terminal.innerHTML = "";
-        } else if (val === "help") {
-            terminal.innerHTML += `
-            help: Display information about builtin commands.
-                <table style="padding: 50px;">
-                    <thead>
-                        <tr>
-                            <th>Options:</th>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td>- ls</td>
-                        <td>list the current directories' content</td>
-                    </tr>
-                    <tr>
-                        <td>- cd</td>
-                        <td>navigate into a different directory</td>
-                    </tr>
-                    <tr>
-                        <td>- cat</td>
-                        <td>display the content of a file</td>
-                    </tr>
-                    <tr>
-                        <td>- clear</td>
-                        <td>clear the terminal</td>
-                    </tr>
-                    <tr>
-                        <td>- su</td>
-                        <td>switch to different user</td>
-                    </tr>
-                </table>
-            `;
-        } else if ((val === "ls") || (val === "dir")) {
+        if ((val === "ls") || (val === "dir")) {
             terminal.innerHTML += `
                 <table>
                     <tr>
@@ -111,10 +78,6 @@ document.addEventListener('keypress', function(event) {
             window.location.href = "https://github.com/degenerateddev/Docknote";
         } else if ((val === "cd /blog") || (val === "cd blog") || (val === "cd blog/")) {
             window.location.href = "https://github.com/degenerateddev/AbyssalWritings";
-        } else {
-            terminal.innerHTML += `
-                <p>Command not found...</p>
-            `;
         }
 
     }

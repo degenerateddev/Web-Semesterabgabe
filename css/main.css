@@ -196,6 +196,7 @@ a:hover {
 
 #terminal {
     min-height: 70vh;
+    max-width: 80vw;
     padding: 10px;
     overflow-y: scroll;
     scrollbar-width: none;
