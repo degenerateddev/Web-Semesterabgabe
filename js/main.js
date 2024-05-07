@@ -87,10 +87,150 @@ window.onload = function() {
                 }
             }
 
-            if (currentValue === "I CAN SEE YOU") {
-                terminal.innerHTML += `
-                    <p style="color: red;">I CAN SEE YOU</p>
-                `;
+            if (currentValue.toLowerCase() === "i can see you") {
+                terminal.innerHTML = 
+                `
+                    <pre style="color: red;">
+                    88                                           
+                    88                                           
+                    88                                           
+                    88                                           
+                    88                                           
+                    88                                           
+                    88                                           
+                    88                                           
+                                                                 
+                                                                 
+                                                                 
+                      ,ad8888ba,         db         888b      88 
+                     d8"'    ""8b       d88b        8888b     88 
+                    d8'                d8''8b       88 '8b    88 
+                    88                d8'  '8b      88  '8b   88 
+                    88               d8YaaaaY8b     88   '8b  88 
+                    Y8,             d8""""""""8b    88    '8b 88 
+                     Y8a.    .a8P  d8'        "8b   88     '8888 
+                      '"Y8888Y"'  d8'          '8b  88      '888 
+                                                                 
+                                                                 
+                                                                 
+                     ad88888ba   88888888888  88888888888        
+                    d8"     "8b  88           88                 
+                    Y8,          88           88                 
+                    "Y8aaaaa,    88aaaaa      88aaaaa            
+                      """"""8b,  88"""""      88"""""            
+                            "8b  88           88                 
+                    Y8a     a8P  88           88                 
+                     "Y88888P"   88888888888  88888888888        
+                                                                 
+                                                                 
+                                                                 
+                    8b        d8  ,ad8888ba,    88        88     
+                     Y8,    ,8P  d8"'    '"8b   88        88     
+                      Y8,  ,8P  d8'        '8b  88        88     
+                       "8aa8"   88          88  88        88     
+                        '88'    88          88  88        88     
+                         88     Y8,        ,8P  88        88     
+                         88      Y8a.    .a8P   Y8a.    .a8P     
+                         88       '"Y8888Y"'     '"Y8888Y"'
+                    </pre/>
+                `
+                
+                setTimeout(() => {
+                    var asciiArts = [
+                        `
+                        <pre style="color: red;">
+                                                  ....xxxxx...,..
+                                              ..XXXXXXXXXXXXXXXXXXXXx. 
+                                           ..XXXXXXXXWWWWWWWWWWWWWWWWXXXX. 
+                                        ...XXXXXWWW"   W88N88@888888WWWWWXX.  
+                                    ...XXXXXXWWW"    M88N88GGGGGG888^8M "WMBX.   
+                                 ..XXXXXXXXWWW"     M88888WWRWWWMW8oo88M   WWMX.  
+                             "XXXXXXXXXXXXWW"       WN8888WWWWW  W8@@@8M    BMBRX.   
+                            XXXXXXXX=MMWW":  .      W8N888WWWWWWWW88888W      XRBRXX. 
+                             ""XXXXXMM::::. .        W8@889WWWWWM8@8N8W      . . :RRXx. 
+                                     MMM::.:.  .      W888N89999888@8W      . . ::::"RXV  
+                                        MMMm::.  .      WW888N88888WW     .  . mmMMMMMRXx
+                                         ""MMmm .  .       WWWWWWW   . :. :,miMM"""  
+                                              ""MMMMmm . .  .  .   ._,mMMMM""" 
+                                                    ""MMMMMMMMMMMMM""" 
+                        </pre/>
+                        `,
+                        `
+                        <pre style="color: red;">
+                                                  ....xxxxx...,..
+                                              ..XXXXXXXXXXXXXXXXXXXXx. 
+                                           ..XXXXXXXXWWWWWWWWWWWWWWWWXXXX. 
+                                        ...XXXXXWXXWWWWWWWWWWWWWWWWWWWWWWXX.  
+                                    ...XXXXXXWWXXWWWWWWWWWWWWWWWWWWWWWWWWWMBX.   
+                                 ..XXXXXXXXWWW"     M88888WWRWWWMW8oo88M   WWMX.  
+                             "XXXXXXXXXXXXWW"       WN8888WWWWW  W8@@@8M    BMBRX.   
+                            XXXXXXXX=MMWW":  .      W8N888WWWWWWWW88888W      XRBRXX. 
+                             ""XXXXXMM::::. .        W8@889WWWWWM8@8N8W      . . :RRXx. 
+                                     MMM::.:.  .      W888N89999888@8W      . . ::::"RXV  
+                                        MMMm::.  .      WW888N88888WW     .  . mmMMMMMRXx
+                                         ""MMmm .  .       WWWWWWW   . :. :,miMM"""  
+                                              ""MMMMmm . .  .  .   ._,mMMMM""" 
+                                                    ""MMMMMMMMMMMMM""" 
+                        </pre/>
+                        `,
+                        `
+                        <pre style="color: red;">
+                                                  ....xxxxx...,..
+                                              ..XXXXXXXXXXXXXXXXXXXXx. 
+                                           ..XXXXXXXXWWWWWWWWWWWWWWWWXXXX. 
+                                        ...XXXXXWXXWWWWWWWWWWWWWWWWWWWWWWXX.  
+                                    ...XXXXXXWWXXWWWWWWWWWWWWWWWWWWWWWWWWWMBX.   
+                                 ..XXXXXXXXWWWXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWMX.  
+                             "XXXXXXXXXXXXWWXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWBMBRX.   
+                            XXXXXXXX=MMWWXXXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWXRBRXX. 
+                             ""XXXXXMMXXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWRRXx. 
+                                     MMM::.:.  .      W888N89999888@8W      . . ::::"RXV  
+                                        MMMm::.  .      WW888N88888WW     .  . mmMMMMMRXx
+                                         ""MMmm .  .       WWWWWWW   . :. :,miMM"""  
+                                              ""MMMMmm . .  .  .   ._,mMMMM""" 
+                                                    ""MMMMMMMMMMMMM""" 
+                        </pre/>
+                        `,
+                        `
+                        <pre style="color: red;">
+                                                  ....xxxxx...,..
+                                              ..XXXXXXXXXXXXXXXXXXXXx. 
+                                           ..XXXXXXXXWWWWWWWWWWWWWWWWXXXX. 
+                                        ...XXXXXWXXWWWWWWWWWWWWWWWWWWWWWWXX.  
+                                    ...XXXXXXWWXXWWWWWWWWWWWWWWWWWWWWWWWWWMBX.   
+                                 ..XXXXXXXXWWWXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWMX.  
+                             "XXXXXXXXXXXXWWXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWBMBRX.   
+                            XXXXXXXX=MMWWXXXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWXRBRXX. 
+                             ""XXXXXMMXXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWRRXx. 
+                                     MMMXXXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"RXV  
+                                        MMMmXXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWmmMMMMMRXx
+                                         ""MMmmXXXWWWWWWWWWWWWWWWWWWWWWWWWWWmiMM"""  
+                                              ""MMMMmmWWWWWWWWWWWWWWWWmMMMM""" 
+                                                    ""MMMMMMMMMMMMM""" 
+                        </pre/>
+                        `,
+                    ]
+                    var i = 0;
+                    var direction = 1;
+    
+                    function updateTerminal() {
+                        terminal.innerHTML = asciiArts[i];
+    
+                        var delay = (i === 0 || i === asciiArts.length - 1) ? 1000 : 150;
+    
+                        if (i === asciiArts.length - 1) {
+                            direction = -1;
+                        } else if (i === 0) {
+                            direction = 1;
+                        }
+    
+                        i += direction;
+    
+                        setTimeout(updateTerminal, delay);
+                    }
+    
+                    updateTerminal();
+                }, 2500);
     
             } else if (currentValue === "clear") {
                 terminal.innerHTML = "";
