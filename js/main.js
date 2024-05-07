@@ -4,12 +4,13 @@ var cli = document.getElementById('cli');
 var terminal = document.getElementById('terminal');
 var skipBeat = false;
 var currentValue = "";
+var initiatedSudo = false;
+var sudoTries = 0;
 
 window.onload = function() {
     var lineStart = document.getElementById('cli-linestart');
     var isRoot = document.cookie.includes("sudoAccess=1");
 
-    console.log(isRoot)
     if (isRoot) {
         lineStart.innerText = "root@terminal>";
 
@@ -60,12 +61,38 @@ window.onload = function() {
             return;
 
         } else if (event.key === "Enter") {
+            if (initiatedSudo) {
+                if (currentValue === "c0ngr4ts_scr1ptk1ddy") {
+                    terminal.innerHTML = `
+                        <p>Root access granted...</p>
+                    `
+                    document.cookie = "sudoAccess=1";
+                } else {
+                    sudoTries++;
+                    terminal.innerHTML = `
+                        <p>Incorrect password...</p>
+                    `
+                }
+    
+                if (sudoTries === 3) {
+                    terminal.innerHTML = `
+                        <p>Too many incorrect attempts...</p>
+                    `
+                    document.cookie = "sudoAccess=0";
+                    initiatedSudo = false;
+                    sudoTries = 0;
+                    setTimeout(() => {
+                        terminal.innerHTML = "";
+                    }, 1000);
+                }
+            }
+
             if (currentValue === "I CAN SEE YOU") {
                 terminal.innerHTML += `
                     <p style="color: red;">I CAN SEE YOU</p>
                 `;
     
-            } else if (val === "clear") {
+            } else if (currentValue === "clear") {
                 terminal.innerHTML = "";
     
             } else if (currentValue === "help") {
@@ -99,11 +126,20 @@ window.onload = function() {
                             </tr>
                         </table>
                     `;
-            } else {
+            } else if (currentValue === "su root") {
+                // maybe set cookie here so people can't just navigate to /admin
+                initiatedSudo = true;
+    
+                terminal.innerHTML += `
+                    <p>Enter root password...</p>
+                `;
+            } else if (currentValue === "c0ngr4ts_scr1ptk1ddy") {
+                
+            } /*else {
                 terminal.innerHTML += `
                     <p>Command not found...</p>
                 `;
-            }
+            }*/
             
             currentValue = "";
             terminal.scrollTop = terminal.scrollHeight;

@@ -1,6 +1,5 @@
 var cli = document.getElementById('cli');
-var initiatedSudo = false;
-var sudoTries = 0;
+var terminal = document.getElementById("terminal");
 
 document.addEventListener('keypress', function(event) {
     var val = "";
@@ -8,36 +7,6 @@ document.addEventListener('keypress', function(event) {
     if (event.key === "Enter") {
         val = cli.innerText;
         cli.innerText = "";
-
-        console.log(val);
-
-        let terminal = document.getElementById("terminal");
-
-        if (initiatedSudo) {
-            if (val === "c0ngr4ts_scr1ptk1ddy") {
-                terminal.innerHTML = `
-                    <p>Root access granted...</p>
-                `
-                document.cookie = "sudoAccess=1";
-            } else {
-                sudoTries++;
-                terminal.innerHTML = `
-                    <p>Incorrect password...</p>
-                `
-            }
-
-            if (sudoTries === 3) {
-                terminal.innerHTML = `
-                    <p>Too many incorrect attempts...</p>
-                `
-                document.cookie = "sudoAccess=0";
-                initiatedSudo = false;
-                sudoTries = 0;
-                setTimeout(() => {
-                    terminal.innerHTML = "";
-                }, 1000);
-            }
-        }
 
         if ((val === "ls") || (val === "dir")) {
             terminal.innerHTML += `
@@ -102,15 +71,6 @@ document.addEventListener('keypress', function(event) {
             terminal.innerHTML += `
                 <p>c0ngr4ts_scr1ptk1ddy</p>
             `;
-        } else if (val === "su root") {
-            // maybe set cookie here so people can't just navigate to /admin
-            initiatedSudo = true;
-
-            terminal.innerHTML += `
-                <p>Enter root password...</p>
-            `;
-        } else if (val === "c0ngr4ts_scr1ptk1ddy") {
-            
         }
 
     }

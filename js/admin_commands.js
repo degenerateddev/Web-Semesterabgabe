@@ -14,10 +14,6 @@ document.addEventListener('keypress', function(event) {
         val = cli.innerText;
         cli.innerText = "";
 
-        console.log(val);
-
-        let terminal = document.getElementById("terminal");
-
         if ((val === "ls") || (val === "dir")) {
             terminal.innerHTML += `
                 <table>

@@ -1,4 +1,6 @@
 var cli = document.getElementById('cli');
+var terminal = document.getElementById("terminal");
+
 var initiatedSudo = false;
 var sudoTries = 0;
 
@@ -8,11 +10,7 @@ document.addEventListener('keypress', function(event) {
     if (event.key === "Enter") {
         val = cli.innerText;
         cli.innerText = "";
-
-        console.log(val);
-
-        let terminal = document.getElementById("terminal");
-
+        
         if ((val === "ls") || (val === "dir")) {
             terminal.innerHTML += `
                 <table>
