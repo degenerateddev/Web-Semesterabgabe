@@ -104,16 +104,26 @@ document.addEventListener('keypress', function(event) {
                 window.location.href = "../html/admin.html";
             } else {
                 terminal.innerHTML += `
-                    <p>Permission denied...</p>
+                    <div class="text-center text-large" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; border: 3px solid #199515; width: fit-content;">
+                        Permission denied
+                    </div>
                 `;
+                setTimeout(() => {
+                    terminal.innerHTML = "";
+                }, 2000);
             }
         } else if ((val === "cd /secret") || (val === "cd secret") || (val === "cd secret/")) {
             if (document.cookie.includes("sudoAccess=1")) {
                 window.location.href = "../html/secret.html";
             } else {
                 terminal.innerHTML += `
-                    <p>Permission denied...</p>
+                    <div class="text-center text-large" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; border: 3px solid #199515; width: fit-content;">
+                        Permission denied
+                    </div>
                 `;
+                setTimeout(() => {
+                    terminal.innerHTML = "";
+                }, 2000);
             }
         } else if ((val === "cd /watcher") || (val === "cd watcher") || (val === "cd watcher/")) {
             if (document.cookie.includes("secretAccess=1")) {

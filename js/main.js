@@ -27,6 +27,10 @@ window.onload = function() {
     var date = new Date().getFullYear();
     document.getElementById('year').innerText = "© " + date;
 
+    function setCookie(name, value) {
+        document.cookie = name + "=" + value + ";path=/";
+    }
+
     setInterval(() => {
         document.getElementById("time").innerText = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds() + "  " + new Date().getFullYear() + ":" + new Date().getMonth() + ":" + new Date().getDate();
     }, 1000);
@@ -72,8 +76,8 @@ window.onload = function() {
                     terminal.innerHTML = `
                         <p>Root access granted...</p>
                     `
-                    document.cookie = "sudoAccess=1";
-                    document.cookie = "secretAccess=0";
+                    setCookie("sudoAccess", 1);
+                    setCookie("secretAccess", 0);
                     window.location.reload();
                 } else {
                     sudoTries++;
@@ -86,7 +90,8 @@ window.onload = function() {
                     terminal.innerHTML = `
                         <p>Too many incorrect attempts...</p>
                     `
-                    document.cookie = "sudoAccess=0";
+
+                    setCookie("sudoAccess", 0);
                     initiatedSudo = false;
                     sudoTries = 0;
                     setTimeout(() => {
@@ -100,8 +105,8 @@ window.onload = function() {
                     terminal.innerHTML = `
                         <p>Access granted...</p>
                     `
-                    document.cookie = "secretAccess=1";
-                    document.cookie = "sudoAccess=0";
+                    setCookie("secretAccess", 1);
+                    setCookie("sudoAccess", 0);
                     window.location.reload();
                 } else {
                     secretTries++;
@@ -114,7 +119,7 @@ window.onload = function() {
                     terminal.innerHTML = `
                         <p>Too many incorrect attempts...</p>
                     `
-                    document.cookie = "secretAccess=0";
+                    setCookie("secretAccess", 0)
                     initiatedSecret = false;
                     secretTries = 0;
                     setTimeout(() => {
@@ -303,6 +308,10 @@ window.onload = function() {
                             <tr>
                                 <td>- vim [filename]</td>
                                 <td>open a file in vim</td>
+                            </tr>
+                            <tr>
+                                <td>- rm -r *</td>
+                                <td>remove all files including subdirectories</td>
                             </tr>
                         </table>
                     `;
