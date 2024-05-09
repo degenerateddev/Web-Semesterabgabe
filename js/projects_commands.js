@@ -1,9 +1,6 @@
 var cli = document.getElementById('cli');
 var terminal = document.getElementById("terminal");
 
-var initiatedSudo = false;
-var sudoTries = 0;
-
 document.addEventListener('keypress', function(event) {
     var val = "";
 

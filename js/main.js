@@ -4,15 +4,21 @@ var cli = document.getElementById('cli');
 var terminal = document.getElementById('terminal');
 var skipBeat = false;
 var currentValue = "";
+
 var initiatedSudo = false;
+var initiatedSecret = false;
+
 var sudoTries = 0;
+var secretTries = 0;
 
 window.onload = function() {
     var lineStart = document.getElementById('cli-linestart');
-    var isRoot = document.cookie.includes("sudoAccess=1");
 
-    if (isRoot) {
+    if (document.cookie.includes("sudoAccess=1")) {
         lineStart.innerText = "root@terminal>";
+    
+    } else if (document.cookie.includes("secretAccess=1")) {
+        lineStart.innerText = "thewatcher@terminal>";
 
     } else {
         lineStart.innerText = "default@terminal>";
@@ -67,6 +73,8 @@ window.onload = function() {
                         <p>Root access granted...</p>
                     `
                     document.cookie = "sudoAccess=1";
+                    document.cookie = "secretAccess=0";
+                    window.location.reload();
                 } else {
                     sudoTries++;
                     terminal.innerHTML = `
@@ -81,6 +89,34 @@ window.onload = function() {
                     document.cookie = "sudoAccess=0";
                     initiatedSudo = false;
                     sudoTries = 0;
+                    setTimeout(() => {
+                        terminal.innerHTML = "";
+                    }, 1000);
+                }
+            }
+
+            if (initiatedSecret) {
+                if (currentValue === "eyesonyou") {
+                    terminal.innerHTML = `
+                        <p>Access granted...</p>
+                    `
+                    document.cookie = "secretAccess=1";
+                    document.cookie = "sudoAccess=0";
+                    window.location.reload();
+                } else {
+                    secretTries++;
+                    terminal.innerHTML = `
+                        <p>Incorrect password...</p>
+                    `
+                }
+    
+                if (secretTries === 3) {
+                    terminal.innerHTML = `
+                        <p>Too many incorrect attempts...</p>
+                    `
+                    document.cookie = "secretAccess=0";
+                    initiatedSecret = false;
+                    secretTries = 0;
                     setTimeout(() => {
                         terminal.innerHTML = "";
                     }, 1000);
@@ -139,73 +175,73 @@ window.onload = function() {
                     var asciiArts = [
                         `
                         <pre style="color: red;">
-                                                  ....xxxxx...,..
-                                              ..XXXXXXXXXXXXXXXXXXXXx. 
-                                           ..XXXXXXXXWWWWWWWWWWWWWWWWXXXX. 
+                                                ....xxxxx...,..
+                                            ..XXXXXXXXXXXXXXXXXXXXx. 
+                                        ..XXXXXXXXWWWWWWWWWWWWWWWWXXXX. 
                                         ...XXXXXWWW"   W88N88@888888WWWWWXX.  
-                                    ...XXXXXXWWW"    M88N88GGGGGG888^8M "WMBX.   
-                                 ..XXXXXXXXWWW"     M88888WWRWWWMW8oo88M   WWMX.  
-                             "XXXXXXXXXXXXWW"       WN8888WWWWW  W8@@@8M    BMBRX.   
+                                    ...XXXXXXWWW"   thewatcher:eyesonyou WMBX.   
+                                ..XXXXXXXXWWW"     M88888WWRWWWMW8oo88M   WWMX.  
+                            "XXXXXXXXXXXXWW"       WN8888WWWWW  W8@@@8M    BMBRX.   
                             XXXXXXXX=MMWW":  .      W8N888WWWWWWWW88888W      XRBRXX. 
-                             ""XXXXXMM::::. .        W8@889WWWWWM8@8N8W      . . :RRXx. 
-                                     MMM::.:.  .      W888N89999888@8W      . . ::::"RXV  
+                            ""XXXXXMM::::. .        W8@889WWWWWM8@8N8W      . . :RRXx. 
+                                    MMM::.:.  .      W888N89999888@8W      . . ::::"RXV  
                                         MMMm::.  .      WW888N88888WW     .  . mmMMMMMRXx
-                                         ""MMmm .  .       WWWWWWW   . :. :,miMM"""  
-                                              ""MMMMmm . .  .  .   ._,mMMMM""" 
+                                        ""MMmm .  .       WWWWWWW   . :. :,miMM"""  
+                                            ""MMMMmm . .  .  .   ._,mMMMM""" 
                                                     ""MMMMMMMMMMMMM""" 
                         </pre/>
                         `,
                         `
                         <pre style="color: red;">
-                                                  ....xxxxx...,..
-                                              ..XXXXXXXXXXXXXXXXXXXXx. 
-                                           ..XXXXXXXXWWWWWWWWWWWWWWWWXXXX. 
+                                                ....xxxxx...,..
+                                            ..XXXXXXXXXXXXXXXXXXXXx. 
+                                        ..XXXXXXXXWWWWWWWWWWWWWWWWXXXX. 
                                         ...XXXXXWXXWWWWWWWWWWWWWWWWWWWWWWXX.  
                                     ...XXXXXXWWXXWWWWWWWWWWWWWWWWWWWWWWWWWMBX.   
-                                 ..XXXXXXXXWWW"     M88888WWRWWWMW8oo88M   WWMX.  
-                             "XXXXXXXXXXXXWW"       WN8888WWWWW  W8@@@8M    BMBRX.   
+                                ..XXXXXXXXWWW"     M88888WWRWWWMW8oo88M   WWMX.  
+                            "XXXXXXXXXXXXWW"       WN8888WWWWW  W8@@@8M    BMBRX.   
                             XXXXXXXX=MMWW":  .      W8N888WWWWWWWW88888W      XRBRXX. 
-                             ""XXXXXMM::::. .        W8@889WWWWWM8@8N8W      . . :RRXx. 
-                                     MMM::.:.  .      W888N89999888@8W      . . ::::"RXV  
+                            ""XXXXXMM::::. .        W8@889WWWWWM8@8N8W      . . :RRXx. 
+                                    MMM::.:.  .      W888N89999888@8W      . . ::::"RXV  
                                         MMMm::.  .      WW888N88888WW     .  . mmMMMMMRXx
-                                         ""MMmm .  .       WWWWWWW   . :. :,miMM"""  
-                                              ""MMMMmm . .  .  .   ._,mMMMM""" 
+                                        ""MMmm .  .       WWWWWWW   . :. :,miMM"""  
+                                            ""MMMMmm . .  .  .   ._,mMMMM""" 
                                                     ""MMMMMMMMMMMMM""" 
                         </pre/>
                         `,
                         `
                         <pre style="color: red;">
-                                                  ....xxxxx...,..
-                                              ..XXXXXXXXXXXXXXXXXXXXx. 
-                                           ..XXXXXXXXWWWWWWWWWWWWWWWWXXXX. 
+                                                ....xxxxx...,..
+                                            ..XXXXXXXXXXXXXXXXXXXXx. 
+                                        ..XXXXXXXXWWWWWWWWWWWWWWWWXXXX. 
                                         ...XXXXXWXXWWWWWWWWWWWWWWWWWWWWWWXX.  
                                     ...XXXXXXWWXXWWWWWWWWWWWWWWWWWWWWWWWWWMBX.   
-                                 ..XXXXXXXXWWWXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWMX.  
-                             "XXXXXXXXXXXXWWXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWBMBRX.   
+                                ..XXXXXXXXWWWXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWMX.  
+                            "XXXXXXXXXXXXWWXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWBMBRX.   
                             XXXXXXXX=MMWWXXXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWXRBRXX. 
-                             ""XXXXXMMXXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWRRXx. 
-                                     MMM::.:.  .      W888N89999888@8W      . . ::::"RXV  
+                            ""XXXXXMMXXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWRRXx. 
+                                    MMM::.:.  .      W888N89999888@8W      . . ::::"RXV  
                                         MMMm::.  .      WW888N88888WW     .  . mmMMMMMRXx
-                                         ""MMmm .  .       WWWWWWW   . :. :,miMM"""  
-                                              ""MMMMmm . .  .  .   ._,mMMMM""" 
+                                        ""MMmm .  .       WWWWWWW   . :. :,miMM"""  
+                                            ""MMMMmm . .  .  .   ._,mMMMM""" 
                                                     ""MMMMMMMMMMMMM""" 
                         </pre/>
                         `,
                         `
                         <pre style="color: red;">
-                                                  ....xxxxx...,..
-                                              ..XXXXXXXXXXXXXXXXXXXXx. 
-                                           ..XXXXXXXXWWWWWWWWWWWWWWWWXXXX. 
+                                                ....xxxxx...,..
+                                            ..XXXXXXXXXXXXXXXXXXXXx. 
+                                        ..XXXXXXXXWWWWWWWWWWWWWWWWXXXX. 
                                         ...XXXXXWXXWWWWWWWWWWWWWWWWWWWWWWXX.  
                                     ...XXXXXXWWXXWWWWWWWWWWWWWWWWWWWWWWWWWMBX.   
-                                 ..XXXXXXXXWWWXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWMX.  
-                             "XXXXXXXXXXXXWWXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWBMBRX.   
+                                ..XXXXXXXXWWWXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWMX.  
+                            "XXXXXXXXXXXXWWXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWBMBRX.   
                             XXXXXXXX=MMWWXXXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWXRBRXX. 
-                             ""XXXXXMMXXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWRRXx. 
-                                     MMMXXXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"RXV  
+                            ""XXXXXMMXXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWRRXx. 
+                                    MMMXXXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"RXV  
                                         MMMmXXXWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWmmMMMMMRXx
-                                         ""MMmmXXXWWWWWWWWWWWWWWWWWWWWWWWWWWmiMM"""  
-                                              ""MMMMmmWWWWWWWWWWWWWWWWmMMMM""" 
+                                        ""MMmmXXXWWWWWWWWWWWWWWWWWWWWWWWWWWmiMM"""  
+                                            ""MMMMmmWWWWWWWWWWWWWWWWmMMMM""" 
                                                     ""MMMMMMMMMMMMM""" 
                         </pre/>
                         `,
@@ -264,6 +300,10 @@ window.onload = function() {
                                 <td>- su</td>
                                 <td>switch to different user</td>
                             </tr>
+                            <tr>
+                                <td>- vim [filename]</td>
+                                <td>open a file in vim</td>
+                            </tr>
                         </table>
                     `;
             } else if (currentValue === "su root") {
@@ -273,9 +313,17 @@ window.onload = function() {
                 terminal.innerHTML += `
                     <p>Enter root password...</p>
                 `;
+            } else if (currentValue === "su thewatcher") {
+                initiatedSecret = true;
+
+                terminal.innerHTML += `
+                    <p>Enter password for thewatcher...</p>
+                `;
             } else if (currentValue === "c0ngr4ts_scr1ptk1ddy") {
                 
-            } /*else {
+            } else if (currentValue === "eyesonyou") {
+
+            }/*else {
                 terminal.innerHTML += `
                     <p>Command not found...</p>
                 `;
