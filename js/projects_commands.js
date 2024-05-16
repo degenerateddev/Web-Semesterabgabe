@@ -15,7 +15,7 @@ document.addEventListener('keypress', function(event) {
                         <td>drwxr-xr-x</td>
                         <td>default</td>
                         <td>default</td>
-                        <td>4096</td>
+                        <td>2048</td>
                         <td>2023-12-12 0:00:00</td>
                         <td>..</td>
                     </tr>
@@ -23,48 +23,48 @@ document.addEventListener('keypress', function(event) {
                         <td>drwxr-xr-x</td>
                         <td>default</td>
                         <td>default</td>
-                        <td>4096</td>
-                        <td>2023-19-12 2:00:00</td>
+                        <td>3072</td>
+                        <td>2023-19-12 2:30:00</td>
                         <td>/author-portfolio</td>
                     </tr>
                     <tr>
-                        <td>-rwxr-xr-x</td>
+                        <td>drwxr-xr-x</td>
                         <td>default</td>
                         <td>default</td>
                         <td>4096</td>
-                        <td>2024-09-01 12:00:00</td>
+                        <td>2024-09-01 12:30:00</td>
                         <td>/docknote</td>
                     </tr>
                     <tr>
-                        <td>-rwxr-xr-x</td>
+                        <td>drwxr-xr-x</td>
                         <td>default</td>
                         <td>default</td>
-                        <td>4096</td>
-                        <td>2024-09-01 12:00:00</td>
+                        <td>5120</td>
+                        <td>2024-09-01 13:00:00</td>
                         <td>/blog</td>
                     </tr>
                     <tr>
-                        <td>-rwxr-xr-x</td>
+                        <td>drwxr-xr-x</td>
                         <td>default</td>
                         <td>default</td>
-                        <td>4096</td>
-                        <td>2024-09-01 12:00:00</td>
+                        <td>6144</td>
+                        <td>2024-09-01 13:30:00</td>
                         <td>/analiki</td>
                     </tr>
                     <tr>
-                        <td>-rwxr-xr-x</td>
+                        <td>drwxr-xr-x</td>
                         <td>default</td>
                         <td>default</td>
-                        <td>4096</td>
-                        <td>2024-09-01 12:00:00</td>
+                        <td>7168</td>
+                        <td>2024-09-01 14:00:00</td>
                         <td>/ransom</td>
                     </tr>
                     <tr>
-                        <td>-rwxr-xr-x</td>
+                        <td>drwxr-xr-x</td>
                         <td>default</td>
                         <td>default</td>
-                        <td>4096</td>
-                        <td>2024-09-01 12:00:00</td>
+                        <td>8192</td>
+                        <td>2024-09-01 14:30:00</td>
                         <td>/ftp-worm</td>
                     </tr>
                 </table>
@@ -74,16 +74,16 @@ document.addEventListener('keypress', function(event) {
                         <td>drwxr-xr-x</td>
                         <td>work-in-progress</td>
                         <td>work-in-progress</td>
-                        <td>4096</td>
-                        <td>2023-19-12 2:00:00</td>
+                        <td>2048</td>
+                        <td>2023-12-12 0:00:00</td>
                         <td>/inquisipay</td>
                     </tr>
                     <tr>
                         <td>drwxr-xr-x</td>
                         <td>work-in-progress</td>
                         <td>work-in-progress</td>
-                        <td>4096</td>
-                        <td>2023-19-12 2:00:00</td>
+                        <td>3072</td>
+                        <td>2023-19-12 2:30:00</td>
                         <td>/taletyper</td>
                     </tr>
                     <tr>
@@ -91,26 +91,26 @@ document.addEventListener('keypress', function(event) {
                         <td>work-in-progress</td>
                         <td>work-in-progress</td>
                         <td>4096</td>
-                        <td>2023-19-12 2:00:00</td>
+                        <td>2024-09-01 12:30:00</td>
                         <td>/talebrain</td>
                     </tr>
                     <tr>
                         <td>drwxr-xr-x</td>
                         <td>work-in-progress</td>
                         <td>work-in-progress</td>
-                        <td>4096</td>
-                        <td>2023-19-12 2:00:00</td>
+                        <td>5120</td>
+                        <td>2024-09-01 13:00:00</td>
                         <td>/trap-ai</td>
                     </tr>
                     <tr>
                         <td>drwxr-xr-x</td>
                         <td>work-in-progress</td>
                         <td>work-in-progress</td>
-                        <td>4096</td>
-                        <td>2023-19-12 2:00:00</td>
+                        <td>6144</td>
+                        <td>2024-09-01 13:30:00</td>
                         <td>/caterizer</td>
                     </tr>
-            </table>
+                </table>
             `;
         } else if ((val === "cd ..") || (val === "cd /")) {
             window.location.href = "../index.html";

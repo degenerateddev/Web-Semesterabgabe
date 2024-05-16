@@ -332,11 +332,7 @@ window.onload = function() {
                 
             } else if (currentValue === "eyesonyou") {
 
-            }/*else {
-                terminal.innerHTML += `
-                    <p>Command not found...</p>
-                `;
-            }*/
+            }
             
             currentValue = "";
             terminal.scrollTop = terminal.scrollHeight;
@@ -351,7 +347,6 @@ window.onload = function() {
         }
 
         cli.innerText = currentValue;
-        console.log(currentValue);
 
         resetCLIWidth();
     });

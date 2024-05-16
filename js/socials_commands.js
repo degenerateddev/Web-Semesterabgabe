@@ -15,48 +15,48 @@ document.addEventListener('keypress', function(event) {
                         <td>drwxr-xr-x</td>
                         <td>default</td>
                         <td>default</td>
-                        <td>4096</td>
-                        <td>2023-12-12 0:00:00</td>
+                        <td>5120</td>
+                        <td>2023-12-12 1:00:00</td>
                         <td>..</td>
                     </tr>
                     <tr>
                         <td>drwxr-xr-x</td>
                         <td>default</td>
                         <td>default</td>
-                        <td>4096</td>
-                        <td>2023-19-12 2:00:00</td>
+                        <td>6144</td>
+                        <td>2023-12-19 3:00:00</td>
                         <td>/writing</td>
                     </tr>
                     <tr>
                         <td>drwxr-xr-x</td>
                         <td>default</td>
                         <td>default</td>
-                        <td>4096</td>
-                        <td>2024-18-3 11:00:00</td>
+                        <td>7168</td>
+                        <td>2024-03-18 12:00:00</td>
                         <td>/instagram</td>
                     </tr>
                     <tr>
                         <td>drwxr-xr-x</td>
                         <td>root</td>
                         <td>root</td>
-                        <td>4096</td>
-                        <td>2024-12-2 16:00:00</td>
+                        <td>8192</td>
+                        <td>2024-02-12 17:00:00</td>
                         <td>/twitter</td>
                     </tr>
                     <tr>
-                        <td>-rwxr-xr-x</td>
+                        <td>drwxr-xr-x</td>
                         <td>default</td>
                         <td>default</td>
-                        <td>4096</td>
-                        <td>2024-09-01 12:00:00</td>
+                        <td>9216</td>
+                        <td>2024-01-09 13:00:00</td>
                         <td>/linkedin</td>
                     </tr>
                     <tr>
-                        <td>-rwxr-xr-x</td>
+                        <td>drwxr-xr-x</td>
                         <td>default</td>
                         <td>default</td>
-                        <td>4096</td>
-                        <td>2024-09-01 12:00:00</td>
+                        <td>10240</td>
+                        <td>2024-01-09 14:00:00</td>
                         <td>/github</td>
                     </tr>
                 </table>
