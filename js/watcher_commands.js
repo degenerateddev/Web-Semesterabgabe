@@ -3,6 +3,10 @@ var terminal = document.getElementById("terminal");
 
 var deletedAll = false;
 
+function setCookie(name, value) {
+    document.cookie = name + "=" + value + ";path=/";
+}
+
 document.addEventListener('keypress', function(event) {
     var val = "";
 
@@ -11,7 +15,7 @@ document.addEventListener('keypress', function(event) {
         cli.innerText = "";
         
         if ((val === "ls") || (val === "dir")) {
-            if (deletedAll === false) {
+            if ((deletedAll === false) && !(document.cookie.includes("finishedGame=1"))) {
                 terminal.innerHTML += `
                     <table>
                         <tr>
@@ -107,7 +111,7 @@ document.addEventListener('keypress', function(event) {
                     Please insert the authorization code.
                 </div>
             `;
-        } else if (val === "1337") {
+        } else if ((val === "1337") && (document.cookie.includes("foundCode=1"))) {
             deletedAll = true;
             terminal.innerHTML = `
                 <div class="text-center text-large" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; border: 3px solid #199515; width: fit-content;">
@@ -152,6 +156,10 @@ document.addEventListener('keypress', function(event) {
                             `;
 
                             setTimeout(() => {
+                                setCookie("secretAccess", 0);
+                                setCookie("sudoAccess", 1);
+                                setCookie("finishedGame", 1);
+
                                 terminal.innerHTML = `
                                     <div class="text-center text-large" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; border: 3px solid #199515; width: fit-content;">
                                         <code>
@@ -159,6 +167,10 @@ document.addEventListener('keypress', function(event) {
                                         </code>
                                     </div>
                                 `;
+
+                                setTimeout(() => {
+                                    window.location.reload();
+                                }, 2500);
                             }, 2000);
                         }, 2000);
                     }, 2000);
@@ -240,6 +252,7 @@ document.addEventListener('keypress', function(event) {
                                     `;
 
                                     if (code === 1337) {
+                                        setCookie("foundCode", 1);
                                         clearInterval(intervalId);
                                     }
 

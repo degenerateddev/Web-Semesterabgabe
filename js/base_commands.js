@@ -18,6 +18,22 @@ document.addEventListener('keypress', function(event) {
                             <td>default</td>
                             <td>5120</td>
                             <td>2023-12-19 3:00:00</td>
+                            <td>/legal</td>
+                        </tr>
+                        <tr>
+                            <td>drwxr-xr-x</td>
+                            <td>default</td>
+                            <td>default</td>
+                            <td>5120</td>
+                            <td>2023-12-19 3:00:00</td>
+                            <td>/privacy</td>
+                        </tr>
+                        <tr>
+                            <td>drwxr-xr-x</td>
+                            <td>default</td>
+                            <td>default</td>
+                            <td>5120</td>
+                            <td>2023-12-19 3:00:00</td>
                             <td>/projects</td>
                         </tr>
                         <tr>
@@ -64,6 +80,22 @@ document.addEventListener('keypress', function(event) {
                             <td>default</td>
                             <td>5120</td>
                             <td>2023-12-19 3:00:00</td>
+                            <td>/legal</td>
+                        </tr>
+                        <tr>
+                            <td>drwxr-xr-x</td>
+                            <td>default</td>
+                            <td>default</td>
+                            <td>5120</td>
+                            <td>2023-12-19 3:00:00</td>
+                            <td>/privacy</td>
+                        </tr>
+                        <tr>
+                            <td>drwxr-xr-x</td>
+                            <td>default</td>
+                            <td>default</td>
+                            <td>5120</td>
+                            <td>2023-12-19 3:00:00</td>
                             <td>/projects</td>
                         </tr>
                         <tr>
@@ -93,6 +125,10 @@ document.addEventListener('keypress', function(event) {
                     </table>
                 `;
             }
+        } else if ((val === "cd /legal") || (val === "cd legal") || (val === "cd legal/")) {
+            window.location.href = "https://www.tha.de/Service/Impressum.html";
+        } else if ((val === "cd /privacy") || (val === "cd privacy") || (val === "cd privacy/")) {
+            window.location.href = "https://www.tha.de/Service/Datenschutz.html";
         } else if ((val === "cd /projects") || (val === "cd projects") || (val === "cd projects/")) {
             window.location.href = "../html/projects.html";
         } else if ((val === "cd /socials") || (val === "cd socials") || (val === "cd socials/")) {

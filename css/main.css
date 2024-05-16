@@ -1,14 +1,15 @@
-body {
+body, html {
     background-color: #1a1a1a;
     font-family: 'Courier New', monospace;
     color: #199515;
+    height: 100%;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 nav {
-    padding: 10px 10px;
-    text-align: center;
+    flex: 0 0 auto;
 }
 
 footer {
@@ -21,7 +22,9 @@ footer {
 }
 
 .h-screen {
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .m-auto {
@@ -46,6 +49,10 @@ a:hover {
 
 .flex {
     display: flex;
+}
+
+.flex.items-center {
+    flex: 0 0 auto;
 }
 
 .flex-col {
@@ -181,8 +188,8 @@ a:hover {
 }
 
 #terminal-base {
-    padding: 20px 20px 0 20px;
-    box-shadow: 
+    padding: 100px;
+    box-shadow:
         inset 0 0 80px #000000, 
         inset 0 0 80px #000000, 
         inset 0 0 80px #000000, 
@@ -191,15 +198,16 @@ a:hover {
         0 0 20px #44ff00, 
         0 0 30px #44ff00, 
         0 0 40px #44ff00;
-    background-color: #073605;
+    background: radial-gradient(circle at center, #073605, #002200);
 }
 
 #terminal {
-    min-height: 70vh;
+    min-height: 50vh;
     max-width: 80vw;
-    padding: 10px;
     overflow-y: scroll;
     scrollbar-width: none;
+    flex: 1 1 auto;
+    overflow-y: auto;
 }
 
 #terminal::-webkit-scrollbar {
