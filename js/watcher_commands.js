@@ -83,7 +83,7 @@ document.addEventListener('keypress', function(event) {
             window.location.href = "../index.html";
         } else if ((val === "cd /headers") || (val === "cd headers") || (val === "cd headers/")) {
             terminal.innerHTML += `
-                <div class="text-center text-large" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; border: 3px solid #199515; width: fit-content;">
+                <div class="text-center text-large" style="background-color: #073605; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; border: 3px solid #199515; width: fit-content;">
                     Permission denied
                 </div>
             `;
@@ -93,7 +93,7 @@ document.addEventListener('keypress', function(event) {
         
         } else if ((val === "cat core.cpp") || (val === "cat subroutines.cpp") || (val === "cat main.cpp") || (val === "cat perms.cpp")) {
             terminal.innerHTML += `
-                <div class="text-center text-large" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; border: 3px solid #199515; width: fit-content;">
+                <div class="text-center text-large" style="background-color: #073605; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; border: 3px solid #199515; width: fit-content;">
                     Permission denied
                 </div>
             `;
