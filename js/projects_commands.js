@@ -10,7 +10,7 @@ document.addEventListener('keypress', function(event) {
 
         if ((val === "ls") || (val === "dir")) {
             terminal.innerHTML += `
-                <table style="border-bottom: dotted 3px;">
+                <table>
                     <tr>
                         <td>drwxr-xr-x</td>
                         <td>default</td>
@@ -69,7 +69,7 @@ document.addEventListener('keypress', function(event) {
                     </tr>
                 </table>
                 
-                <table>
+                <table style="border-top: dotted 3px;">
                     <tr>
                         <td>drwxr-xr-x</td>
                         <td>work-in-progress</td>
