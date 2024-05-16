@@ -25,14 +25,17 @@ window.onload = function() {
     }
 
     var date = new Date().getFullYear();
-    document.getElementById('year').innerText = "© " + date;
+    document.getElementById('year').innerText += " © " + date;
 
     function setCookie(name, value) {
         document.cookie = name + "=" + value + ";path=/";
     }
 
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     setInterval(() => {
-        document.getElementById("time").innerText = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds() + "  " + new Date().getFullYear() + ":" + new Date().getMonth() + ":" + new Date().getDate();
+        const now = new Date();
+        const monthName = months[now.getMonth()];
+        document.getElementById("time").innerText = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds() + "  " + now.getDate() + ". " + monthName + " " + now.getFullYear();
     }, 1000);
 
     setInterval(() => {
