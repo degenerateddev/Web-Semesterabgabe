@@ -170,6 +170,5 @@ document.addEventListener('keypress', function(event) {
                 <p>c0ngr4ts_scr1ptk1ddy</p>
             `;
         }
-
     }
 });
