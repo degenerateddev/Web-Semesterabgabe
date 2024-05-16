@@ -1,12 +1,6 @@
 var cli = document.getElementById('cli');
 var terminal = document.getElementById('terminal');
 
-window.onload = function() {
-    terminal.innerHTML += `
-        Welcome to the admin panel...
-    `;
-};
-
 document.addEventListener('keypress', function(event) {
     var val = "";
     

@@ -358,6 +358,7 @@ window.onload = function() {
     
     document.addEventListener('keyup', function(event) {
         skipBeat = false;
+        resetCLIWidth()
     });
 
     document.addEventListener('keypress', function(event) {
