@@ -1,0 +1,2 @@
+# Plain static site: serve the repo root with nginx
+providers = ["staticfile"]

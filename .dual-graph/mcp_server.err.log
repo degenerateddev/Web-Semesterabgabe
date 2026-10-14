@@ -1,0 +1,67 @@
+C:\Users\freng\.dual-graph\venv\Lib\site-packages\pydantic_settings\sources\utils.py:47: IncompleteFieldDefinitionWarning: Field 'lifespan' has an incomplete definition: its annotation contains an unresolved forward reference, so settings sources may fail to correctly resolve its value. Call `model_rebuild()` on the model where the field is defined, once all the referenced types are defined.
+  warnings.warn(
+ERROR:mcp.server.streamable_http:Error in message router
+Traceback (most recent call last):
+  File "C:\Users\freng\.dual-graph\venv\Lib\site-packages\mcp\server\streamable_http.py", line 831, in message_router
+    async for session_message in write_stream_reader:
+  File "C:\Users\freng\.dual-graph\venv\Lib\site-packages\anyio\abc\_streams.py", line 37, in __anext__
+    return await self.receive()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\freng\.dual-graph\venv\Lib\site-packages\anyio\streams\memory.py", line 118, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\freng\.dual-graph\venv\Lib\site-packages\anyio\streams\memory.py", line 100, in receive_nowait
+    raise ClosedResourceError
+anyio.ClosedResourceError
+ERROR:mcp.server.streamable_http:Error in message router
+Traceback (most recent call last):
+  File "C:\Users\freng\.dual-graph\venv\Lib\site-packages\mcp\server\streamable_http.py", line 831, in message_router
+    async for session_message in write_stream_reader:
+  File "C:\Users\freng\.dual-graph\venv\Lib\site-packages\anyio\abc\_streams.py", line 37, in __anext__
+    return await self.receive()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\freng\.dual-graph\venv\Lib\site-packages\anyio\streams\memory.py", line 118, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\freng\.dual-graph\venv\Lib\site-packages\anyio\streams\memory.py", line 100, in receive_nowait
+    raise ClosedResourceError
+anyio.ClosedResourceError
+ERROR:mcp.server.streamable_http:Error in message router
+Traceback (most recent call last):
+  File "C:\Users\freng\.dual-graph\venv\Lib\site-packages\mcp\server\streamable_http.py", line 831, in message_router
+    async for session_message in write_stream_reader:
+  File "C:\Users\freng\.dual-graph\venv\Lib\site-packages\anyio\abc\_streams.py", line 37, in __anext__
+    return await self.receive()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\freng\.dual-graph\venv\Lib\site-packages\anyio\streams\memory.py", line 118, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\freng\.dual-graph\venv\Lib\site-packages\anyio\streams\memory.py", line 100, in receive_nowait
+    raise ClosedResourceError
+anyio.ClosedResourceError
+ERROR:mcp.server.streamable_http:Error in message router
+Traceback (most recent call last):
+  File "C:\Users\freng\.dual-graph\venv\Lib\site-packages\mcp\server\streamable_http.py", line 831, in message_router
+    async for session_message in write_stream_reader:
+  File "C:\Users\freng\.dual-graph\venv\Lib\site-packages\anyio\abc\_streams.py", line 37, in __anext__
+    return await self.receive()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\freng\.dual-graph\venv\Lib\site-packages\anyio\streams\memory.py", line 118, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\freng\.dual-graph\venv\Lib\site-packages\anyio\streams\memory.py", line 100, in receive_nowait
+    raise ClosedResourceError
+anyio.ClosedResourceError
+ERROR:mcp.server.streamable_http:Error in message router
+Traceback (most recent call last):
+  File "C:\Users\freng\.dual-graph\venv\Lib\site-packages\mcp\server\streamable_http.py", line 831, in message_router
+    async for session_message in write_stream_reader:
+  File "C:\Users\freng\.dual-graph\venv\Lib\site-packages\anyio\abc\_streams.py", line 37, in __anext__
+    return await self.receive()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\freng\.dual-graph\venv\Lib\site-packages\anyio\streams\memory.py", line 118, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\freng\.dual-graph\venv\Lib\site-packages\anyio\streams\memory.py", line 100, in receive_nowait
+    raise ClosedResourceError
+anyio.ClosedResourceError
